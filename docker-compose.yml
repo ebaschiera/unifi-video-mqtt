@@ -8,6 +8,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     volumes:
+      # this has to point to log folder of your unifi video controller
       - ../UniFi-Video-Controller/run/data/logs:/var/log/unifi-video/
     environment:
       - MQTT_SERVER=192.168.x.x
