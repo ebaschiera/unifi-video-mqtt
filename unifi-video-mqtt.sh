@@ -42,7 +42,7 @@ while inotifywait -e modify $UNIFI_MOTION_LOG; do
 
   if [[ $VER_TEST == "[uv.analytics.motion]" ]]; then
     # New Format
-    LAST_CAM=`echo $LAST_MESSAGE | awk -F '[][]' '{print $6}' | cut -d '|' -f 1`
+    LAST_CAM=`echo $LAST_MESSAGE | awk -F '[][]' '{print $4}'
   else
     # Old Format
     LAST_CAM=`echo $LAST_MESSAGE | awk -F '[][]' '{print $2}'`
