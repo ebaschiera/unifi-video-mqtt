@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  unifi-video-mqtt:
+    container_name: unifi-video-mqtt
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ../UniFi-Video-Controller/run/data/logs:/var/log/unifi-video/
+    environment:
+      - MQTT_SERVER=192.168.x.x
+      - MQTT_PORT=1883
+      - MQTT_TOPIC_BASE=camera/motion
+      - MQTT_USER=username
+      - MQTT_PASS=password
+      - CAM_IDS=FCECDA8XXXXX|FCECDADXXXXX
